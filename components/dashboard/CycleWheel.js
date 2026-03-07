@@ -27,8 +27,8 @@ function describeArc(startDay, endDay, cycleLength) {
   return `M ${x1} ${y1} A ${RADIUS} ${RADIUS} 0 ${largeArc} 1 ${x2} ${y2}`;
 }
 
-export default function CycleWheel({ currentDay, cycleLength, periodDuration, phaseName }) {
-  const phases = calculatePhases(cycleLength, periodDuration);
+export default function CycleWheel({ currentDay, cycleLength, periodDuration, phaseName, ovulationDay = null }) {
+  const phases = calculatePhases(cycleLength, periodDuration, ovulationDay);
   const currentPhaseData = PHASES[phaseName];
   const phaseColor = currentPhaseData?.color || "#4A7C59";
 

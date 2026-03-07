@@ -22,7 +22,7 @@ export async function POST(req) {
   }
 
   const body = await req.json();
-  const { name, age, cycleLength, periodDuration, lastPeriodStart, region } = body;
+  const { name, age, cycleLength, periodDuration, lastPeriodStart, lastPeriodEnd, ovulationDay, region } = body;
 
   if (!name || !age || !lastPeriodStart) {
     return NextResponse.json({ error: "Datos incompletos" }, { status: 400 });
@@ -31,7 +31,12 @@ export async function POST(req) {
   await connectMongoose();
   const data = await CycleData.findOneAndUpdate(
     { userId: session.user.id },
-    { name, age, cycleLength, periodDuration, lastPeriodStart, ...(region && { region }) },
+    {
+      name, age, cycleLength, periodDuration, lastPeriodStart,
+      ...(region && { region }),
+      ...(lastPeriodEnd !== undefined && { lastPeriodEnd }),
+      ...(ovulationDay !== undefined && { ovulationDay }),
+    },
     { upsert: true, new: true }
   );
 

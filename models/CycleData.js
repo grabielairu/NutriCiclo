@@ -35,6 +35,16 @@ const cycleDataSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    lastPeriodEnd: {
+      type: String,
+      default: null,
+    },
+    ovulationDay: {
+      type: Number,
+      default: null,
+      min: 1,
+      max: 60,
+    },
     region: {
       type: String,
       default: "general",

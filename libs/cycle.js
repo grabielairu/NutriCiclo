@@ -4,10 +4,12 @@ const LUTEAL_LENGTH = 14;
  * Calcula los rangos de dias para cada fase del ciclo.
  * Principio medico: la fase lutea es fija (~14 dias), la folicular varia.
  */
-export function calculatePhases(cycleLength = 28, periodDuration = 5) {
+export function calculatePhases(cycleLength = 28, periodDuration = 5, customOvulationDay = null) {
   const safeCycle = Math.max(cycleLength, 1);
   const safePeriod = Math.min(periodDuration, safeCycle);
-  const ovulationDay = Math.max(safeCycle - LUTEAL_LENGTH, safePeriod + 3);
+  const ovulationDay = customOvulationDay
+    ? Math.max(Math.min(customOvulationDay, safeCycle - 1), safePeriod + 2)
+    : Math.max(safeCycle - LUTEAL_LENGTH, safePeriod + 3);
 
   return [
     {
@@ -51,8 +53,8 @@ export function getCurrentCycleDay(lastPeriodStart, cycleLength = 28) {
 /**
  * Retorna la fase correspondiente a un dia dado del ciclo.
  */
-export function getPhaseForDay(day, cycleLength = 28, periodDuration = 5) {
-  const phases = calculatePhases(cycleLength, periodDuration);
+export function getPhaseForDay(day, cycleLength = 28, periodDuration = 5, customOvulationDay = null) {
+  const phases = calculatePhases(cycleLength, periodDuration, customOvulationDay);
   return phases.find((p) => day >= p.startDay && day <= p.endDay) || phases[3];
 }
 
@@ -75,7 +77,7 @@ export function getNextPeriodDate(lastPeriodStart, cycleLength = 28) {
 /**
  * Calcula cuantos dias faltan para que termine la fase actual.
  */
-export function getDaysRemainingInPhase(day, cycleLength = 28, periodDuration = 5) {
-  const phase = getPhaseForDay(day, cycleLength, periodDuration);
+export function getDaysRemainingInPhase(day, cycleLength = 28, periodDuration = 5, customOvulationDay = null) {
+  const phase = getPhaseForDay(day, cycleLength, periodDuration, customOvulationDay);
   return phase.endDay - day;
 }

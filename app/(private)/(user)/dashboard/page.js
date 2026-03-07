@@ -4,6 +4,7 @@ import { useState } from "react";
 import ButtonAccount from "@/components/ButtonAccount";
 import OnboardingModal from "@/components/onboarding/OnboardingModal";
 import CycleWheel from "@/components/dashboard/CycleWheel";
+import CycleDataEditor from "@/components/dashboard/CycleDataEditor";
 import RegionSelector from "@/components/dashboard/RegionSelector";
 import { useCycleData } from "@/hooks/useCycleData";
 import { getCurrentCycleDay, getPhaseForDay, getNextPeriodDate, getDaysRemainingInPhase } from "@/libs/cycle";
@@ -53,10 +54,10 @@ export default function Dashboard() {
   }
 
   const day = getCurrentCycleDay(cycleData.lastPeriodStart, cycleData.cycleLength);
-  const phase = getPhaseForDay(day, cycleData.cycleLength, cycleData.periodDuration);
+  const phase = getPhaseForDay(day, cycleData.cycleLength, cycleData.periodDuration, cycleData.ovulationDay);
   const phaseData = PHASES[phase.name];
   const nextPeriod = getNextPeriodDate(cycleData.lastPeriodStart, cycleData.cycleLength);
-  const daysLeft = getDaysRemainingInPhase(day, cycleData.cycleLength, cycleData.periodDuration);
+  const daysLeft = getDaysRemainingInPhase(day, cycleData.cycleLength, cycleData.periodDuration, cycleData.ovulationDay);
 
   const regionFoods = getFoodsForPhase(phase.name, cycleData.region);
   const foods = regionFoods || phaseData.foods;
@@ -98,6 +99,7 @@ export default function Dashboard() {
                 cycleLength={cycleData.cycleLength}
                 periodDuration={cycleData.periodDuration}
                 phaseName={phase.name}
+                ovulationDay={cycleData.ovulationDay}
               />
             </div>
 
@@ -163,6 +165,12 @@ export default function Dashboard() {
                 </div>
               );
             })()}
+
+            {/* Editor de datos del ciclo */}
+            <CycleDataEditor
+              cycleData={cycleData}
+              onSave={(updated) => saveCycleData({ ...cycleData, ...updated })}
+            />
           </div>
 
           {/* Right: Nutrition recommendations */}
