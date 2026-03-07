@@ -4,7 +4,7 @@ import config from "@/config";
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-br from-[#1A2E1A] via-[#2D4A2D] to-[#1A3A3A]">
-      <div className="max-w-7xl mx-auto px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-10 sm:py-16">
         <div className="flex flex-col md:flex-row md:items-start gap-10">
           <div className="flex-shrink-0 md:w-64 text-center md:text-left">
             <Link

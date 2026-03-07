@@ -79,7 +79,7 @@ export default function OnboardingModal({ isOpen, onComplete }) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-md transform rounded-3xl glass-strong p-8 shadow-2xl transition-all">
+              <Dialog.Panel className="w-full max-w-md transform rounded-3xl glass-strong p-5 sm:p-8 shadow-2xl transition-all">
                 {/* Progress dots */}
                 <div className="flex justify-center gap-2 mb-8">
                   {[1, 2, 3].map((s) => (
@@ -98,7 +98,7 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                   <div className="space-y-6">
                     <div className="text-center">
                       <span className="text-4xl">🦦</span>
-                      <h2 className="text-2xl font-bold text-[var(--color-dark)] mt-2">
+                      <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-dark)] mt-2">
                         Hola! Cuéntanos de ti
                       </h2>
                     </div>
@@ -136,7 +136,7 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                   <div className="space-y-6">
                     <div className="text-center">
                       <span className="text-4xl">🌙</span>
-                      <h2 className="text-2xl font-bold text-[var(--color-dark)] mt-2">
+                      <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-dark)] mt-2">
                         Sobre tu ciclo
                       </h2>
                     </div>
@@ -150,7 +150,7 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                         max="35"
                         value={form.cycleLength}
                         onChange={(e) => setForm({ ...form, cycleLength: parseInt(e.target.value) })}
-                        className="range range-sm"
+                        className="range"
                         style={{ accentColor: "var(--color-sage)" }}
                       />
                       <div className="flex justify-between text-xs text-[var(--color-dark)]/50 mt-1">
@@ -172,7 +172,7 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                         max="8"
                         value={form.periodDuration}
                         onChange={(e) => setForm({ ...form, periodDuration: parseInt(e.target.value) })}
-                        className="range range-sm"
+                        className="range"
                         style={{ accentColor: "var(--color-coral)" }}
                       />
                       <div className="flex justify-between text-xs text-[var(--color-dark)]/50 mt-1">
@@ -189,7 +189,7 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                   <div className="space-y-6">
                     <div className="text-center">
                       <span className="text-4xl">📅</span>
-                      <h2 className="text-2xl font-bold text-[var(--color-dark)] mt-2">
+                      <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-dark)] mt-2">
                         Ultimo periodo
                       </h2>
                     </div>

@@ -34,9 +34,24 @@ export function useCycleData() {
     }
   };
 
+  const saveRegion = async (region) => {
+    try {
+      const res = await fetch("/api/cycle", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...cycleData, region }),
+      });
+      if (!res.ok) throw new Error("Error saving region");
+      const { data: saved } = await res.json();
+      setCycleData(saved);
+    } catch (e) {
+      console.error("Error saving region:", e);
+    }
+  };
+
   const clearCycleData = () => {
     setCycleData(null);
   };
 
-  return { cycleData, saveCycleData, clearCycleData, isLoading };
+  return { cycleData, saveCycleData, saveRegion, clearCycleData, isLoading };
 }

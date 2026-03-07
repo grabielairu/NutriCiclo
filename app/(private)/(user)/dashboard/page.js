@@ -1,19 +1,27 @@
 "use client";
 
+import { useState } from "react";
 import ButtonAccount from "@/components/ButtonAccount";
 import OnboardingModal from "@/components/onboarding/OnboardingModal";
 import CycleWheel from "@/components/dashboard/CycleWheel";
+import RegionSelector from "@/components/dashboard/RegionSelector";
 import { useCycleData } from "@/hooks/useCycleData";
 import { getCurrentCycleDay, getPhaseForDay, getNextPeriodDate, getDaysRemainingInPhase } from "@/libs/cycle";
 import { PHASES } from "@/libs/constants";
+import { getFoodsForPhase, REGIONS } from "@/libs/regionalFoods";
 
 export const dynamic = "force-dynamic";
 
 export default function Dashboard() {
-  const { cycleData, saveCycleData, isLoading } = useCycleData();
+  const { cycleData, saveCycleData, saveRegion, isLoading } = useCycleData();
+  const [showRegionModal, setShowRegionModal] = useState(false);
 
   const handleOnboardingComplete = (data) => {
     saveCycleData(data);
+  };
+
+  const handleRegionSelect = (region) => {
+    saveRegion(region);
   };
 
   if (isLoading) {
@@ -30,7 +38,7 @@ export default function Dashboard() {
         <div className="p-4 flex justify-end max-w-7xl mx-auto">
           <ButtonAccount />
         </div>
-        <div className="flex flex-col items-center justify-center py-20 px-8 text-center">
+        <div className="flex flex-col items-center justify-center py-20 px-4 sm:px-8 text-center">
           <span className="text-6xl mb-4" style={{ animation: "float 6s ease-in-out infinite" }}>🦦</span>
           <h1 className="text-3xl font-bold text-[var(--color-dark)] mb-2">
             Bienvenida a NutriCiclo
@@ -49,6 +57,10 @@ export default function Dashboard() {
   const phaseData = PHASES[phase.name];
   const nextPeriod = getNextPeriodDate(cycleData.lastPeriodStart, cycleData.cycleLength);
   const daysLeft = getDaysRemainingInPhase(day, cycleData.cycleLength, cycleData.periodDuration);
+
+  const regionFoods = getFoodsForPhase(phase.name, cycleData.region);
+  const foods = regionFoods || phaseData.foods;
+  const currentRegion = REGIONS.find((r) => r.key === cycleData.region) || REGIONS[0];
 
   return (
     <main className="min-h-screen bg-nature-soft">
@@ -75,12 +87,12 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-8 py-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left: CycleWheel + Phase Info */}
           <div className="lg:w-2/5 flex flex-col items-center gap-6">
             {/* Wheel container with glass effect */}
-            <div className="glass-strong rounded-3xl p-6 shadow-nature w-full flex justify-center">
+            <div className="glass-strong rounded-3xl p-3 sm:p-6 shadow-nature w-full flex justify-center">
               <CycleWheel
                 currentDay={day}
                 cycleLength={cycleData.cycleLength}
@@ -122,10 +134,10 @@ export default function Dashboard() {
           {/* Right: Nutrition recommendations */}
           <div className="lg:w-3/5">
             <div
-              className="glass-strong rounded-3xl p-8 shadow-nature"
+              className="glass-strong rounded-3xl p-4 sm:p-6 md:p-8 shadow-nature"
               style={{ "--phase-color": phaseData.color + "30" }}
             >
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-2">
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center text-lg"
                   style={{ background: `linear-gradient(135deg, ${phaseData.color}, ${phaseData.color}cc)` }}
@@ -142,15 +154,29 @@ export default function Dashboard() {
                 </div>
               </div>
 
+              {/* Region selector button */}
+              <button
+                onClick={() => setShowRegionModal(true)}
+                className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-full glass border border-[var(--color-sage)]/20 hover:border-[var(--color-sage)]/40 transition-colors mb-5"
+              >
+                <span>{currentRegion.emoji}</span>
+                <span className="text-[var(--color-dark)]/70">
+                  {!cycleData.region || cycleData.region === "general"
+                    ? "Personaliza por region"
+                    : `Region: ${currentRegion.label}`}
+                </span>
+                <span className="text-[var(--color-sage)]">▸</span>
+              </button>
+
               <div className="space-y-1">
-                {phaseData.foods.map((food, i) => (
+                {foods.map((food, i) => (
                   <div key={i} className="food-item flex gap-4">
                     <div
                       className="w-1.5 rounded-full flex-shrink-0 mt-1 self-stretch"
                       style={{ backgroundColor: phaseData.color }}
                     />
                     <div className="flex-1">
-                      <p className="font-semibold text-[var(--color-dark)] text-[15px]">{food.name}</p>
+                      <p className="font-semibold text-[var(--color-dark)] text-sm sm:text-[15px]">{food.name}</p>
                       <p className="text-sm text-[var(--color-dark)]/55 leading-relaxed mt-0.5">{food.reason}</p>
                     </div>
                   </div>
@@ -164,6 +190,14 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      {/* Region selector modal */}
+      <RegionSelector
+        isOpen={showRegionModal}
+        onClose={() => setShowRegionModal(false)}
+        currentRegion={cycleData.region || "general"}
+        onSelect={handleRegionSelect}
+      />
     </main>
   );
 }

@@ -54,7 +54,7 @@ export default function CycleWheel({ currentDay, cycleLength, periodDuration, ph
 
   return (
     <div className="flex flex-col items-center">
-      <svg width={SIZE} height={SIZE} viewBox={`0 0 ${SIZE} ${SIZE}`}>
+      <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className="w-full h-auto max-w-[380px]">
         <defs>
           {/* Glow filter for active phase */}
           <filter id="activeGlow" x="-50%" y="-50%" width="200%" height="200%">

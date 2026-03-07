@@ -13,13 +13,13 @@ export default function Page() {
         {/* Hero with nature gradient */}
         <section className="bg-nature relative overflow-hidden">
           {/* Decorative circles */}
-          <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-white/5 blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-white/3 blur-3xl" />
+          <div className="absolute top-10 left-10 w-40 h-40 sm:w-64 sm:h-64 rounded-full bg-white/5 blur-3xl" />
+          <div className="absolute bottom-10 right-10 w-56 h-56 sm:w-80 sm:h-80 rounded-full bg-white/5 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-white/3 blur-3xl" />
 
-          <div className="flex flex-col items-center justify-center text-center gap-8 px-8 py-28 max-w-4xl mx-auto relative z-10">
+          <div className="flex flex-col items-center justify-center text-center gap-8 px-4 sm:px-8 py-16 sm:py-28 max-w-4xl mx-auto relative z-10">
             <span className="text-7xl" style={{ animation: "float 6s ease-in-out infinite" }}>🦦</span>
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
               Nutre tu cuerpo en sintonia con tu ciclo
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">
@@ -36,13 +36,13 @@ export default function Page() {
         </section>
 
         {/* Features */}
-        <section className="bg-nature-soft px-8 py-24 relative">
+        <section className="bg-nature-soft px-4 sm:px-8 py-12 sm:py-24 relative">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-[var(--color-dark)] text-center mb-16">
               Todo lo que necesitas
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="glass rounded-2xl p-8 shadow-nature hover:shadow-xl transition-all hover:-translate-y-1">
+              <div className="glass rounded-2xl p-5 sm:p-8 shadow-nature hover:shadow-xl transition-all hover:-translate-y-1">
                 <div className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-5" style={{ background: "linear-gradient(135deg, var(--color-coral), #e8968e)" }}>
                   🍎
                 </div>
@@ -55,7 +55,7 @@ export default function Page() {
                 </p>
               </div>
 
-              <div className="glass rounded-2xl p-8 shadow-nature hover:shadow-xl transition-all hover:-translate-y-1">
+              <div className="glass rounded-2xl p-5 sm:p-8 shadow-nature hover:shadow-xl transition-all hover:-translate-y-1">
                 <div className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-5" style={{ background: "linear-gradient(135deg, var(--color-river), #7bbfdb)" }}>
                   🌙
                 </div>
@@ -68,7 +68,7 @@ export default function Page() {
                 </p>
               </div>
 
-              <div className="glass rounded-2xl p-8 shadow-nature hover:shadow-xl transition-all hover:-translate-y-1">
+              <div className="glass rounded-2xl p-5 sm:p-8 shadow-nature hover:shadow-xl transition-all hover:-translate-y-1">
                 <div className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-5" style={{ background: "linear-gradient(135deg, var(--color-sage), var(--color-bright))" }}>
                   🔬
                 </div>
@@ -85,7 +85,7 @@ export default function Page() {
         </section>
 
         {/* How it works */}
-        <section className="bg-[var(--color-cream)] px-8 py-24">
+        <section className="bg-[var(--color-cream)] px-4 sm:px-8 py-12 sm:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-[var(--color-dark)] mb-16">
               Como funciona

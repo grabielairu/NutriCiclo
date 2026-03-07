@@ -35,6 +35,11 @@ const cycleDataSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    region: {
+      type: String,
+      default: "general",
+      enum: ["general", "mexico", "colombia", "argentina", "peru", "chile", "centroamerica", "espana"],
+    },
   },
   {
     timestamps: true,

@@ -33,7 +33,7 @@ const Header = () => {
   return (
     <header className="glass sticky top-0 z-40 shadow-sm">
       <nav
-        className="container flex items-center justify-between px-8 py-4 mx-auto"
+        className="container flex items-center justify-between px-4 sm:px-8 py-4 mx-auto"
         aria-label="Global"
       >
         {/* Your logo/name on large screens */}
@@ -51,7 +51,7 @@ const Header = () => {
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 min-w-[44px] min-h-[44px]"
             onClick={() => setIsOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -136,7 +136,7 @@ const Header = () => {
                   <Link
                     href={link.href}
                     key={link.href}
-                    className="link link-hover"
+                    className="link link-hover py-3 active:bg-[var(--color-sage)]/10 rounded-lg px-2"
                     title={link.label}
                   >
                     {link.label}
