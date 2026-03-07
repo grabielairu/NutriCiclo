@@ -5,6 +5,8 @@ import ButtonAccount from "@/components/ButtonAccount";
 import OnboardingModal from "@/components/onboarding/OnboardingModal";
 import CycleWheel from "@/components/dashboard/CycleWheel";
 import CycleDataEditor from "@/components/dashboard/CycleDataEditor";
+import DailyTip from "@/components/dashboard/DailyTip";
+import HormoneChart from "@/components/dashboard/HormoneChart";
 import RegionSelector from "@/components/dashboard/RegionSelector";
 import { useCycleData } from "@/hooks/useCycleData";
 import { getCurrentCycleDay, getPhaseForDay, getNextPeriodDate, getDaysRemainingInPhase } from "@/libs/cycle";
@@ -132,6 +134,13 @@ export default function Dashboard() {
               </div>
             </div>
 
+            {/* Tip del dia */}
+            <DailyTip
+              phaseName={phase.name}
+              dayInPhase={day - phase.startDay}
+              phaseColor={phaseData.color}
+            />
+
             {/* Alerta profesional para ciclos fuera del rango normal */}
             {(() => {
               const alerts = [];
@@ -226,9 +235,17 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <p className="text-xs text-[var(--color-dark)]/30 text-center mt-6">
+            <p className="text-xs text-[var(--color-dark)]/30 text-center mt-6 mb-6">
               Recomendaciones informativas basadas en ciencia nutricional. Consulta a tu profesional de salud.
             </p>
+
+            {/* Grafica hormonal */}
+            <HormoneChart
+              currentDay={day}
+              cycleLength={cycleData.cycleLength}
+              periodDuration={cycleData.periodDuration}
+              ovulationDay={cycleData.ovulationDay}
+            />
           </div>
         </div>
       </div>
