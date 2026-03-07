@@ -5,28 +5,30 @@ const LUTEAL_LENGTH = 14;
  * Principio medico: la fase lutea es fija (~14 dias), la folicular varia.
  */
 export function calculatePhases(cycleLength = 28, periodDuration = 5) {
-  const ovulationDay = cycleLength - LUTEAL_LENGTH;
+  const safeCycle = Math.max(cycleLength, 1);
+  const safePeriod = Math.min(periodDuration, safeCycle);
+  const ovulationDay = Math.max(safeCycle - LUTEAL_LENGTH, safePeriod + 3);
 
   return [
     {
       name: "menstrual",
       startDay: 1,
-      endDay: periodDuration,
+      endDay: safePeriod,
     },
     {
       name: "folicular",
-      startDay: periodDuration + 1,
-      endDay: ovulationDay - 2,
+      startDay: Math.min(safePeriod + 1, safeCycle),
+      endDay: Math.max(ovulationDay - 2, safePeriod + 1),
     },
     {
       name: "ovulatoria",
-      startDay: ovulationDay - 1,
-      endDay: ovulationDay + 1,
+      startDay: Math.max(ovulationDay - 1, safePeriod + 2),
+      endDay: Math.min(ovulationDay + 1, safeCycle),
     },
     {
       name: "lutea",
-      startDay: ovulationDay + 2,
-      endDay: cycleLength,
+      startDay: Math.min(ovulationDay + 2, safeCycle),
+      endDay: safeCycle,
     },
   ];
 }

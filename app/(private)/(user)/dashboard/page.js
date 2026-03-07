@@ -129,6 +129,40 @@ export default function Dashboard() {
                 </p>
               </div>
             </div>
+
+            {/* Alerta profesional para ciclos fuera del rango normal */}
+            {(() => {
+              const alerts = [];
+              if (cycleData.periodDuration >= cycleData.cycleLength && cycleData.cycleLength > 0)
+                alerts.push("Si tu sangrado dura todo el ciclo, es importante que consultes con un profesional de salud para una evaluacion.");
+              if (cycleData.cycleLength < 21 && cycleData.cycleLength > 0)
+                alerts.push("Un ciclo menor a 21 dias podria indicar alteraciones hormonales. Te recomendamos consultar con un profesional de salud.");
+              if (cycleData.cycleLength > 35)
+                alerts.push("Un ciclo mayor a 35 dias podria estar asociado a condiciones como SOP. Considera consultar con un profesional.");
+              if (cycleData.periodDuration > 7)
+                alerts.push("Un sangrado mayor a 7 dias merece atencion medica para descartar posibles condiciones.");
+              if (cycleData.periodDuration < 2 && cycleData.periodDuration > 0)
+                alerts.push("Un sangrado menor a 2 dias podria indicar cambios hormonales. Considera mencionarlo en tu proxima consulta medica.");
+
+              if (alerts.length === 0) return null;
+
+              return (
+                <div className="bg-amber-50 border-l-4 border-amber-500 rounded-2xl p-4 w-full shadow-sm">
+                  <div className="flex items-start gap-3">
+                    <span className="text-xl flex-shrink-0 mt-0.5">⚠️</span>
+                    <div className="space-y-2">
+                      <h4 className="font-bold text-amber-900 text-sm">Consulta con un profesional</h4>
+                      {alerts.map((msg, i) => (
+                        <p key={i} className="text-amber-800 text-sm leading-relaxed">{msg}</p>
+                      ))}
+                      <p className="text-amber-700/60 text-xs mt-2 pt-2 border-t border-amber-200">
+                        Esta app no reemplaza el consejo medico profesional. Siempre consulta con un especialista.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
           </div>
 
           {/* Right: Nutrition recommendations */}

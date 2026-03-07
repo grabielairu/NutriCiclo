@@ -22,14 +22,14 @@ const cycleDataSchema = mongoose.Schema(
     cycleLength: {
       type: Number,
       default: 28,
-      min: 21,
-      max: 35,
+      min: 0,
+      max: 60,
     },
     periodDuration: {
       type: Number,
       default: 5,
-      min: 2,
-      max: 8,
+      min: 0,
+      max: 30,
     },
     lastPeriodStart: {
       type: String,

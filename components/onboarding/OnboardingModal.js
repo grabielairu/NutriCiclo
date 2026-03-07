@@ -146,20 +146,20 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                       </label>
                       <input
                         type="range"
-                        min="21"
-                        max="35"
+                        min="0"
+                        max="60"
                         value={form.cycleLength}
                         onChange={(e) => setForm({ ...form, cycleLength: parseInt(e.target.value) })}
                         className="range"
                         style={{ accentColor: "var(--color-sage)" }}
                       />
                       <div className="flex justify-between text-xs text-[var(--color-dark)]/50 mt-1">
-                        <span>21</span>
+                        <span>0</span>
                         <span className="font-bold text-[var(--color-sage)] text-base">{form.cycleLength} dias</span>
-                        <span>35</span>
+                        <span>60</span>
                       </div>
                       <p className="text-xs text-[var(--color-dark)]/40 mt-1">
-                        El promedio es 28 dias. Si no estas segura, dejalo en 28.
+                        El promedio es 28 dias. Si no estas segura, dejalo en 28. Cada cuerpo es diferente.
                       </p>
                     </div>
                     <div>
@@ -168,17 +168,17 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                       </label>
                       <input
                         type="range"
-                        min="2"
-                        max="8"
+                        min="0"
+                        max="30"
                         value={form.periodDuration}
                         onChange={(e) => setForm({ ...form, periodDuration: parseInt(e.target.value) })}
                         className="range"
                         style={{ accentColor: "var(--color-coral)" }}
                       />
                       <div className="flex justify-between text-xs text-[var(--color-dark)]/50 mt-1">
-                        <span>2</span>
+                        <span>0</span>
                         <span className="font-bold text-[var(--color-coral)] text-base">{form.periodDuration} dias</span>
-                        <span>8</span>
+                        <span>30</span>
                       </div>
                     </div>
                   </div>
