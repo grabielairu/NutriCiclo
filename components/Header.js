@@ -8,10 +8,6 @@ import config from "@/config";
 
 const links = [
   {
-    href: "/",
-    label: "Inicio",
-  },
-  {
     href: "/dashboard",
     label: "Mi Ciclo",
   },

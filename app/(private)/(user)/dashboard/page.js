@@ -199,7 +199,7 @@ export default function Dashboard() {
               {/* Region selector button */}
               <button
                 onClick={() => setShowRegionModal(true)}
-                className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-full glass border border-[var(--color-sage)]/20 hover:border-[var(--color-sage)]/40 transition-colors mb-5"
+                className="flex items-center gap-2 text-sm px-4 py-2.5 rounded-full bg-[var(--color-sage)]/15 border-2 border-[var(--color-sage)]/40 hover:bg-[var(--color-sage)]/25 hover:border-[var(--color-sage)]/60 transition-colors mb-5 font-medium"
               >
                 <span>{currentRegion.emoji}</span>
                 <span className="text-[var(--color-dark)]/70">

@@ -35,6 +35,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   ...(connectMongo && { adapter: MongoDBAdapter(connectMongo) }),
 
   callbacks: {
+    async redirect({ baseUrl }) {
+      return `${baseUrl}/dashboard`;
+    },
     async jwt({ token, user, trigger, session }) {
       // Include user role in JWT token
       if (user) {
