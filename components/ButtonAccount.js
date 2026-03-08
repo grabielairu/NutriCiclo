@@ -9,7 +9,7 @@ const ButtonAccount = () => {
 	const { data: session, status } = useSession();
 
 	const handleSignOut = () => {
-		signOut({ callbackUrl: "/" });
+		signOut({ callbackUrl: "/dashboard" });
 	};
 
 	if (status === "unauthenticated") return null;

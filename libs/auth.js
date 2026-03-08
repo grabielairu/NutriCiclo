@@ -35,7 +35,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   ...(connectMongo && { adapter: MongoDBAdapter(connectMongo) }),
 
   callbacks: {
-    async redirect({ baseUrl }) {
+    async redirect({ url, baseUrl }) {
+      if (url.startsWith(baseUrl)) return url;
       return `${baseUrl}/dashboard`;
     },
     async jwt({ token, user, trigger, session }) {

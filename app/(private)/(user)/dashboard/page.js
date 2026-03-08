@@ -12,6 +12,8 @@ import { useCycleData } from "@/hooks/useCycleData";
 import { getCurrentCycleDay, getPhaseForDay, getNextPeriodDate, getDaysRemainingInPhase } from "@/libs/cycle";
 import { PHASES } from "@/libs/constants";
 import { getFoodsForPhase, REGIONS } from "@/libs/regionalFoods";
+import { generateCyclePDF, openWhatsAppShare } from "@/libs/exportPdf";
+import { getTipForDay } from "@/libs/dailyTips";
 
 export const dynamic = "force-dynamic";
 
@@ -205,19 +207,63 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              {/* Region selector button */}
-              <button
-                onClick={() => setShowRegionModal(true)}
-                className="flex items-center gap-2 text-sm px-4 py-2.5 rounded-full bg-[var(--color-sage)]/15 border-2 border-[var(--color-sage)]/40 hover:bg-[var(--color-sage)]/25 hover:border-[var(--color-sage)]/60 transition-colors mb-5 font-medium"
-              >
-                <span>{currentRegion.emoji}</span>
-                <span className="text-[var(--color-dark)]/70">
-                  {!cycleData.region || cycleData.region === "general"
-                    ? "Personaliza por region"
-                    : `Region: ${currentRegion.label}`}
-                </span>
-                <span className="text-[var(--color-sage)]">▸</span>
-              </button>
+              {/* Region selector + Share buttons */}
+              <div className="flex gap-2 flex-wrap mb-5">
+                <button
+                  onClick={() => setShowRegionModal(true)}
+                  className="flex items-center gap-2 text-sm px-4 py-2.5 rounded-full bg-[var(--color-sage)]/15 border-2 border-[var(--color-sage)]/40 hover:bg-[var(--color-sage)]/25 hover:border-[var(--color-sage)]/60 transition-colors font-medium"
+                >
+                  <span>{currentRegion.emoji}</span>
+                  <span className="text-[var(--color-dark)]/70">
+                    {!cycleData.region || cycleData.region === "general"
+                      ? "Personaliza por region"
+                      : `Region: ${currentRegion.label}`}
+                  </span>
+                  <span className="text-[var(--color-sage)]">&#x25B8;</span>
+                </button>
+                <button
+                  onClick={() => {
+                    const tip = getTipForDay(phase.name, day - phase.startDay);
+                    const alertsList = [];
+                    if (cycleData.periodDuration >= cycleData.cycleLength && cycleData.cycleLength > 0)
+                      alertsList.push("Si tu sangrado dura todo el ciclo, consulta con un profesional.");
+                    if (cycleData.cycleLength < 21 && cycleData.cycleLength > 0)
+                      alertsList.push("Un ciclo menor a 21 dias podria indicar alteraciones hormonales.");
+                    if (cycleData.cycleLength > 35)
+                      alertsList.push("Un ciclo mayor a 35 dias podria estar asociado a condiciones como SOP.");
+                    if (cycleData.periodDuration > 7)
+                      alertsList.push("Un sangrado mayor a 7 dias merece atencion medica.");
+
+                    generateCyclePDF({
+                      name: cycleData.name,
+                      cycleLength: cycleData.cycleLength,
+                      periodDuration: cycleData.periodDuration,
+                      currentDay: day,
+                      phaseName: phase.name,
+                      phaseData,
+                      daysLeft,
+                      nextPeriod,
+                      foods,
+                      tip,
+                      alerts: alertsList,
+                      regionLabel: currentRegion.label,
+                      ovulationDay: cycleData.ovulationDay,
+                    });
+
+                    setTimeout(() => {
+                      openWhatsAppShare({
+                        phaseName: phaseData.name,
+                        currentDay: day,
+                        cycleLength: cycleData.cycleLength,
+                      });
+                    }, 500);
+                  }}
+                  className="flex items-center gap-2 text-sm px-4 py-2.5 rounded-full bg-[var(--color-coral)]/15 border-2 border-[var(--color-coral)]/40 hover:bg-[var(--color-coral)]/25 hover:border-[var(--color-coral)]/60 transition-colors font-medium"
+                >
+                  <span>&#x1F4C4;</span>
+                  <span className="text-[var(--color-dark)]/70">Compartir resumen</span>
+                </button>
+              </div>
 
               <div className="space-y-1">
                 {foods.map((food, i) => (
