@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import { getSEOTags } from "@/libs/seo";
 import ClientLayout from "@/components/LayoutClient";
 import config from "@/config";
@@ -25,6 +26,12 @@ export default function RootLayout({ children }) {
 			className={font.className}
 		>
 			<body>
+				<Script
+					defer
+					data-website-id="dfid_VbPAT8VBP7qU5Aoq1PKBc"
+					data-domain="nutri-ciclo.vercel.app"
+					src="https://datafa.st/js/script.js"
+				/>
 				{/* ClientLayout contains all the client wrappers (Crisp chat support, toast messages, tooltips, etc.) */}
 				<ClientLayout>{children}</ClientLayout>
 			</body>
