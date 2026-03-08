@@ -49,9 +49,24 @@ export function useCycleData() {
     }
   };
 
+  const saveDietType = async (dietType) => {
+    try {
+      const res = await fetch("/api/cycle", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...cycleData, dietType }),
+      });
+      if (!res.ok) throw new Error("Error saving diet type");
+      const { data: saved } = await res.json();
+      setCycleData(saved);
+    } catch (e) {
+      console.error("Error saving diet type:", e);
+    }
+  };
+
   const clearCycleData = () => {
     setCycleData(null);
   };
 
-  return { cycleData, saveCycleData, saveRegion, clearCycleData, isLoading };
+  return { cycleData, saveCycleData, saveRegion, saveDietType, clearCycleData, isLoading };
 }

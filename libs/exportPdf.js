@@ -70,6 +70,7 @@ export function generateCyclePDF({
   tip,
   alerts,
   regionLabel,
+  dietLabel,
   ovulationDay,
 }) {
   const doc = new jsPDF();
@@ -126,8 +127,13 @@ export function generateCyclePDF({
     infoX,
     y + 30
   );
-  if (regionLabel) {
-    doc.text(`Region: ${regionLabel}`, infoX, y + 37);
+  let infoY = y + 37;
+  if (regionLabel && regionLabel !== "General") {
+    doc.text(`Region: ${regionLabel}`, infoX, infoY);
+    infoY += 7;
+  }
+  if (dietLabel && dietLabel !== "General") {
+    doc.text(`Dieta: ${dietLabel}`, infoX, infoY);
   }
 
   y = donutCy + donutRadius + 15;

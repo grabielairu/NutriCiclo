@@ -22,7 +22,7 @@ export async function POST(req) {
   }
 
   const body = await req.json();
-  const { name, age, cycleLength, periodDuration, lastPeriodStart, lastPeriodEnd, ovulationDay, region } = body;
+  const { name, age, cycleLength, periodDuration, lastPeriodStart, lastPeriodEnd, ovulationDay, region, dietType } = body;
 
   if (!name || !age || !lastPeriodStart) {
     return NextResponse.json({ error: "Datos incompletos" }, { status: 400 });
@@ -34,6 +34,7 @@ export async function POST(req) {
     {
       name, age, cycleLength, periodDuration, lastPeriodStart,
       ...(region && { region }),
+      ...(dietType && { dietType }),
       ...(lastPeriodEnd !== undefined && { lastPeriodEnd }),
       ...(ovulationDay !== undefined && { ovulationDay }),
     },

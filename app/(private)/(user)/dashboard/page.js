@@ -8,18 +8,21 @@ import CycleDataEditor from "@/components/dashboard/CycleDataEditor";
 import DailyTip from "@/components/dashboard/DailyTip";
 import HormoneChart from "@/components/dashboard/HormoneChart";
 import RegionSelector from "@/components/dashboard/RegionSelector";
+import DietSelector from "@/components/dashboard/DietSelector";
 import { useCycleData } from "@/hooks/useCycleData";
 import { getCurrentCycleDay, getPhaseForDay, getNextPeriodDate, getDaysRemainingInPhase } from "@/libs/cycle";
 import { PHASES } from "@/libs/constants";
 import { getFoodsForPhase, REGIONS } from "@/libs/regionalFoods";
+import { getFoodsForDiet, DIET_TYPES } from "@/libs/dietFoods";
 import { generateCyclePDF, openWhatsAppShare } from "@/libs/exportPdf";
 import { getTipForDay } from "@/libs/dailyTips";
 
 export const dynamic = "force-dynamic";
 
 export default function Dashboard() {
-  const { cycleData, saveCycleData, saveRegion, isLoading } = useCycleData();
+  const { cycleData, saveCycleData, saveRegion, saveDietType, isLoading } = useCycleData();
   const [showRegionModal, setShowRegionModal] = useState(false);
+  const [showDietModal, setShowDietModal] = useState(false);
 
   const handleOnboardingComplete = (data) => {
     saveCycleData(data);
@@ -27,6 +30,10 @@ export default function Dashboard() {
 
   const handleRegionSelect = (region) => {
     saveRegion(region);
+  };
+
+  const handleDietSelect = (dietType) => {
+    saveDietType(dietType);
   };
 
   if (isLoading) {
@@ -63,9 +70,11 @@ export default function Dashboard() {
   const nextPeriod = getNextPeriodDate(cycleData.lastPeriodStart, cycleData.cycleLength);
   const daysLeft = getDaysRemainingInPhase(day, cycleData.cycleLength, cycleData.periodDuration, cycleData.ovulationDay);
 
+  const dietFoods = getFoodsForDiet(phase.name, cycleData.dietType);
   const regionFoods = getFoodsForPhase(phase.name, cycleData.region);
-  const foods = regionFoods || phaseData.foods;
+  const foods = dietFoods || regionFoods || phaseData.foods;
   const currentRegion = REGIONS.find((r) => r.key === cycleData.region) || REGIONS[0];
+  const currentDiet = DIET_TYPES.find((d) => d.key === cycleData.dietType) || DIET_TYPES[0];
 
   return (
     <main className="min-h-screen bg-nature-soft">
@@ -222,6 +231,18 @@ export default function Dashboard() {
                   <span className="text-[var(--color-sage)]">&#x25B8;</span>
                 </button>
                 <button
+                  onClick={() => setShowDietModal(true)}
+                  className="flex items-center gap-2 text-sm px-4 py-2.5 rounded-full bg-[var(--color-sage)]/15 border-2 border-[var(--color-sage)]/40 hover:bg-[var(--color-sage)]/25 hover:border-[var(--color-sage)]/60 transition-colors font-medium"
+                >
+                  <span>{currentDiet.emoji}</span>
+                  <span className="text-[var(--color-dark)]/70">
+                    {!cycleData.dietType || cycleData.dietType === "general"
+                      ? "Tipo de dieta"
+                      : currentDiet.label}
+                  </span>
+                  <span className="text-[var(--color-sage)]">&#x25B8;</span>
+                </button>
+                <button
                   onClick={() => {
                     const tip = getTipForDay(phase.name, day - phase.startDay);
                     const alertsList = [];
@@ -247,6 +268,7 @@ export default function Dashboard() {
                       tip,
                       alerts: alertsList,
                       regionLabel: currentRegion.label,
+                      dietLabel: currentDiet.label,
                       ovulationDay: cycleData.ovulationDay,
                     });
 
@@ -302,6 +324,14 @@ export default function Dashboard() {
         onClose={() => setShowRegionModal(false)}
         currentRegion={cycleData.region || "general"}
         onSelect={handleRegionSelect}
+      />
+
+      {/* Diet selector modal */}
+      <DietSelector
+        isOpen={showDietModal}
+        onClose={() => setShowDietModal(false)}
+        currentDietType={cycleData.dietType || "general"}
+        onSelect={handleDietSelect}
       />
     </main>
   );

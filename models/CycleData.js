@@ -50,6 +50,11 @@ const cycleDataSchema = mongoose.Schema(
       default: "general",
       enum: ["general", "mexico", "colombia", "argentina", "peru", "chile", "centroamerica", "espana"],
     },
+    dietType: {
+      type: String,
+      default: "general",
+      enum: ["general", "vegana", "vegetariana", "sin_gluten", "low_fodmap", "sin_picos_glucosa", "antiinflamatoria"],
+    },
   },
   {
     timestamps: true,
