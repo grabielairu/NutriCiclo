@@ -14,7 +14,7 @@ export default function DailyTip({ phaseName, dayInPhase, phaseColor }) {
         <span className="text-2xl flex-shrink-0">{icon}</span>
         <div>
           <p className="text-xs font-bold text-[var(--color-dark)]/40 uppercase tracking-wide mb-1">
-            Tip del dia
+            Tip del día
           </p>
           <p className="text-sm text-[var(--color-dark)]/80 leading-relaxed">
             {tip}

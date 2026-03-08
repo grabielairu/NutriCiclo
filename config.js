@@ -2,7 +2,7 @@ const config = {
   // REQUIRED
   appName: "NutriCiclo",
   appDescription:
-    "Nutricion personalizada segun tu ciclo menstrual, basada en ciencia",
+    "Nutrición personalizada según tu ciclo menstrual, basada en ciencia",
   domainName: "nutriciclo.com",
   crisp: {
     // Crisp website ID. IF YOU DON'T USE CRISP: just remove this => Then add a support email in this config file (resend.supportEmail) otherwise customer support won't work.

@@ -33,10 +33,10 @@ const Footer = () => {
               </div>
               <div className="flex flex-col gap-2 text-sm">
                 <Link href="/tos" className="text-white/50 hover:text-white/80 transition-colors">
-                  Terminos de servicio
+                  Términos de servicio
                 </Link>
                 <Link href="/privacy-policy" className="text-white/50 hover:text-white/80 transition-colors">
-                  Politica de privacidad
+                  Política de privacidad
                 </Link>
               </div>
             </div>
@@ -45,9 +45,9 @@ const Footer = () => {
 
         <div className="mt-10 pt-6 border-t border-white/10">
           <p className="text-xs text-white/30 text-center max-w-2xl mx-auto">
-            Las recomendaciones de NutriCiclo son informativas y estan basadas en ciencia
-            nutricional publicada. No sustituyen el consejo medico profesional. Consulta a
-            tu profesional de salud para orientacion personalizada.
+            Las recomendaciones de NutriCiclo son informativas y están basadas en ciencia
+            nutricional publicada. No sustituyen el consejo médico profesional. Consulta a
+            tu profesional de salud para orientación personalizada.
           </p>
         </div>
       </div>

@@ -20,10 +20,10 @@ export default function Page() {
           <div className="flex flex-col items-center justify-center text-center gap-8 px-4 sm:px-8 py-16 sm:py-28 max-w-4xl mx-auto relative z-10">
             <span className="text-7xl" style={{ animation: "float 6s ease-in-out infinite" }}>🦦</span>
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
-              Nutre tu cuerpo en sintonia con tu ciclo
+              Nutre tu cuerpo en sintonía con tu ciclo
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">
-              Descubre que alimentos necesita tu cuerpo en cada fase de tu ciclo
+              Descubre qué alimentos necesita tu cuerpo en cada fase de tu ciclo
               menstrual. Recomendaciones personalizadas basadas en ciencia.
             </p>
             <Link
@@ -47,11 +47,11 @@ export default function Page() {
                   🍎
                 </div>
                 <h3 className="text-xl font-bold text-[var(--color-dark)] mb-3">
-                  Nutricion por Fase
+                  Nutrición por Fase
                 </h3>
                 <p className="text-[var(--color-dark)]/60 text-sm leading-relaxed">
                   Cada fase de tu ciclo tiene necesidades nutricionales distintas.
-                  Te decimos que comer y por que, respaldado por estudios clinicos.
+                  Te decimos qué comer y por qué, respaldado por estudios clínicos.
                 </p>
               </div>
 
@@ -63,8 +63,8 @@ export default function Page() {
                   Tu Ciclo, Visual
                 </h3>
                 <p className="text-[var(--color-dark)]/60 text-sm leading-relaxed">
-                  Visualiza en que dia y fase de tu ciclo estas con un grafico
-                  interactivo. Sabe cuando viene tu proximo periodo.
+                  Visualiza en qué día y fase de tu ciclo estás con un gráfico
+                  interactivo. Sabe cuándo viene tu próximo periodo.
                 </p>
               </div>
 
@@ -76,8 +76,8 @@ export default function Page() {
                   Basado en Ciencia
                 </h3>
                 <p className="text-[var(--color-dark)]/60 text-sm leading-relaxed">
-                  Cada recomendacion explica la razon cientifica detras. Omega-3
-                  para calambres, magnesio para PMS, y mucho mas.
+                  Cada recomendación explica la razón científica detrás. Omega-3
+                  para calambres, magnesio para PMS, y mucho más.
                 </p>
               </div>
             </div>
@@ -88,7 +88,7 @@ export default function Page() {
         <section className="bg-[var(--color-cream)] px-4 sm:px-8 py-12 sm:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-[var(--color-dark)] mb-16">
-              Como funciona
+              Cómo funciona
             </h2>
             <div className="flex flex-col md:flex-row gap-12 items-center md:items-start">
               <div className="flex-1">
@@ -97,7 +97,7 @@ export default function Page() {
                 </div>
                 <h4 className="font-bold text-[var(--color-dark)] mb-2 text-lg">Ingresa tus datos</h4>
                 <p className="text-sm text-[var(--color-dark)]/60 leading-relaxed">
-                  Tu nombre, duracion de ciclo y fecha de tu ultimo periodo.
+                  Tu nombre, duración de ciclo y fecha de tu último periodo.
                 </p>
               </div>
               <div className="flex-1">
@@ -106,7 +106,7 @@ export default function Page() {
                 </div>
                 <h4 className="font-bold text-[var(--color-dark)] mb-2 text-lg">Conoce tu fase</h4>
                 <p className="text-sm text-[var(--color-dark)]/60 leading-relaxed">
-                  Calculamos automaticamente en que fase de tu ciclo estas hoy.
+                  Calculamos automáticamente en qué fase de tu ciclo estás hoy.
                 </p>
               </div>
               <div className="flex-1">
@@ -115,7 +115,7 @@ export default function Page() {
                 </div>
                 <h4 className="font-bold text-[var(--color-dark)] mb-2 text-lg">Come mejor</h4>
                 <p className="text-sm text-[var(--color-dark)]/60 leading-relaxed">
-                  Recibe recomendaciones de alimentos especificos para tu fase actual.
+                  Recibe recomendaciones de alimentos específicos para tu fase actual.
                 </p>
               </div>
             </div>

@@ -84,7 +84,7 @@ export default function CycleDataEditor({ cycleData, onSave }) {
         {/* A) Fechas de periodo */}
         <div>
           <label className="block text-sm font-semibold text-[var(--color-dark)] mb-2">
-            Inicio del ultimo periodo
+            Inicio del último periodo
           </label>
           <div className="flex justify-center">
             <DayPicker
@@ -108,7 +108,7 @@ export default function CycleDataEditor({ cycleData, onSave }) {
 
         <div>
           <label className="block text-sm font-semibold text-[var(--color-dark)] mb-2">
-            Fin del ultimo periodo
+            Fin del último periodo
             <span className="font-normal text-[var(--color-dark)]/40 ml-1">(opcional)</span>
           </label>
           <div className="flex justify-center">
@@ -132,7 +132,7 @@ export default function CycleDataEditor({ cycleData, onSave }) {
         {/* B) Sliders de ciclo y sangrado */}
         <div className="border-t border-[var(--color-dark)]/5 pt-4">
           <label className="block text-sm font-semibold text-[var(--color-dark)] mb-1">
-            Duracion del ciclo (dias)
+            Duración del ciclo (dias)
           </label>
           <input
             type="range"
@@ -145,14 +145,14 @@ export default function CycleDataEditor({ cycleData, onSave }) {
           />
           <div className="flex justify-between text-xs text-[var(--color-dark)]/50 mt-1">
             <span>0</span>
-            <span className="font-bold text-[var(--color-sage)] text-base">{form.cycleLength} dias</span>
+            <span className="font-bold text-[var(--color-sage)] text-base">{form.cycleLength} días</span>
             <span>60</span>
           </div>
         </div>
 
         <div>
           <label className="block text-sm font-semibold text-[var(--color-dark)] mb-1">
-            Duracion del sangrado (dias)
+            Duración del sangrado (días)
           </label>
           <input
             type="range"
@@ -165,7 +165,7 @@ export default function CycleDataEditor({ cycleData, onSave }) {
           />
           <div className="flex justify-between text-xs text-[var(--color-dark)]/50 mt-1">
             <span>0</span>
-            <span className="font-bold text-[var(--color-coral)] text-base">{form.periodDuration} dias</span>
+            <span className="font-bold text-[var(--color-coral)] text-base">{form.periodDuration} días</span>
             <span>{Math.min(30, form.cycleLength)}</span>
           </div>
         </div>
@@ -174,7 +174,7 @@ export default function CycleDataEditor({ cycleData, onSave }) {
         <div className="border-t border-[var(--color-dark)]/5 pt-4">
           <div className="flex items-center justify-between mb-2">
             <label className="text-sm font-semibold text-[var(--color-dark)]">
-              Dia de ovulacion personalizado
+              Dia de ovulación personalizado
             </label>
             <input
               type="checkbox"
@@ -211,12 +211,12 @@ export default function CycleDataEditor({ cycleData, onSave }) {
                 <span>Dia {Math.max(form.cycleLength - 1, 1)}</span>
               </div>
               <p className="text-xs text-[var(--color-dark)]/40 mt-1">
-                Si usas pruebas de ovulacion o temperatura basal, indica el dia exacto.
+                Si usas pruebas de ovulación o temperatura basal, indica el día exacto.
               </p>
             </div>
           ) : (
             <p className="text-xs text-[var(--color-dark)]/40">
-              Se calcula automaticamente (dia {autoOvulationDay} de tu ciclo)
+              Se calcula automáticamente (día {autoOvulationDay} de tu ciclo)
             </p>
           )}
         </div>

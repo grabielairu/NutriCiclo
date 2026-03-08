@@ -131,7 +131,7 @@ export default function Dashboard() {
                   Fase {phaseData.name}
                 </span>
                 <span className="text-xs text-[var(--color-dark)]/50">
-                  {daysLeft === 0 ? "Ultimo dia" : `${daysLeft} dias restantes`}
+                  {daysLeft === 0 ? "Último día" : `${daysLeft} días restantes`}
                 </span>
               </div>
               <p className="text-[var(--color-dark)]/70 text-sm leading-relaxed">
@@ -140,7 +140,7 @@ export default function Dashboard() {
               <div className="mt-3 pt-3 border-t border-[var(--color-dark)]/5">
                 <p className="text-xs text-[var(--color-dark)]/50 flex items-center gap-1">
                   <span>📅</span>
-                  Proximo periodo: <strong className="text-[var(--color-dark)]/70">{nextPeriod.toLocaleDateString("es-MX", { day: "numeric", month: "long" })}</strong>
+                  Próximo periodo: <strong className="text-[var(--color-dark)]/70">{nextPeriod.toLocaleDateString("es-MX", { day: "numeric", month: "long" })}</strong>
                 </p>
               </div>
             </div>
@@ -156,13 +156,13 @@ export default function Dashboard() {
             {(() => {
               const alerts = [];
               if (cycleData.periodDuration >= cycleData.cycleLength && cycleData.cycleLength > 0)
-                alerts.push("Si tu sangrado dura todo el ciclo, es importante que consultes con un profesional de salud para una evaluacion.");
+                alerts.push("Si tu sangrado dura todo el ciclo, es importante que consultes con un profesional de salud para una evaluación.");
               if (cycleData.cycleLength < 21 && cycleData.cycleLength > 0)
                 alerts.push("Un ciclo menor a 21 dias podria indicar alteraciones hormonales. Te recomendamos consultar con un profesional de salud.");
               if (cycleData.cycleLength > 35)
                 alerts.push("Un ciclo mayor a 35 dias podria estar asociado a condiciones como SOP. Considera consultar con un profesional.");
               if (cycleData.periodDuration > 7)
-                alerts.push("Un sangrado mayor a 7 dias merece atencion medica para descartar posibles condiciones.");
+                alerts.push("Un sangrado mayor a 7 dias merece atención médica para descartar posibles condiciones.");
               if (cycleData.periodDuration < 2 && cycleData.periodDuration > 0)
                 alerts.push("Un sangrado menor a 2 dias podria indicar cambios hormonales. Considera mencionarlo en tu proxima consulta medica.");
 
@@ -178,7 +178,7 @@ export default function Dashboard() {
                         <p key={i} className="text-amber-800 text-sm leading-relaxed">{msg}</p>
                       ))}
                       <p className="text-amber-700/60 text-xs mt-2 pt-2 border-t border-amber-200">
-                        Esta app no reemplaza el consejo medico profesional. Siempre consulta con un especialista.
+                        Esta app no reemplaza el consejo médico profesional. Siempre consulta con un especialista.
                       </p>
                     </div>
                   </div>
@@ -225,8 +225,8 @@ export default function Dashboard() {
                   <span>{currentRegion.emoji}</span>
                   <span className="text-[var(--color-dark)]/70">
                     {!cycleData.region || cycleData.region === "general"
-                      ? "Personaliza por region"
-                      : `Region: ${currentRegion.label}`}
+                      ? "Personaliza por región"
+                      : `Región: ${currentRegion.label}`}
                   </span>
                   <span className="text-[var(--color-sage)]">&#x25B8;</span>
                 </button>
@@ -253,7 +253,7 @@ export default function Dashboard() {
                     if (cycleData.cycleLength > 35)
                       alertsList.push("Un ciclo mayor a 35 dias podria estar asociado a condiciones como SOP.");
                     if (cycleData.periodDuration > 7)
-                      alertsList.push("Un sangrado mayor a 7 dias merece atencion medica.");
+                      alertsList.push("Un sangrado mayor a 7 dias merece atención médica.");
 
                     generateCyclePDF({
                       name: cycleData.name,

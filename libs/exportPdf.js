@@ -51,7 +51,7 @@ function drawCycleDonut(doc, cx, cy, radius, phases, currentDay, cycleLength) {
   doc.setFontSize(8);
   doc.setFont("helvetica", "normal");
   doc.setTextColor(120, 120, 120);
-  doc.text(`de ${cycleLength} dias`, cx, cy + 5, { align: "center" });
+  doc.text(`de ${cycleLength} días`, cx, cy + 5, { align: "center" });
 
   // Reset line width
   doc.setLineWidth(0.2);
@@ -120,16 +120,16 @@ export function generateCyclePDF({
   doc.setFont("helvetica", "normal");
   doc.setTextColor(80, 80, 80);
   doc.text(`Dia ${currentDay} de ${cycleLength}`, infoX, y + 16);
-  const statusText = daysLeft === 0 ? "Ultimo dia de esta fase" : `${daysLeft} dias restantes`;
+  const statusText = daysLeft === 0 ? "Último día de esta fase" : `${daysLeft} días restantes`;
   doc.text(statusText, infoX, y + 23);
   doc.text(
-    `Proximo periodo: ${nextPeriod.toLocaleDateString("es-MX", { day: "numeric", month: "long" })}`,
+    `Próximo periodo: ${nextPeriod.toLocaleDateString("es-MX", { day: "numeric", month: "long" })}`,
     infoX,
     y + 30
   );
   let infoY = y + 37;
   if (regionLabel && regionLabel !== "General") {
-    doc.text(`Region: ${regionLabel}`, infoX, infoY);
+    doc.text(`Región: ${regionLabel}`, infoX, infoY);
     infoY += 7;
   }
   if (dietLabel && dietLabel !== "General") {
@@ -254,7 +254,7 @@ export function generateCyclePDF({
   doc.setFontSize(8);
   doc.setTextColor(150, 150, 150);
   doc.text(
-    "Esta informacion es educativa y no reemplaza el consejo medico profesional. Siempre consulta con un especialista.",
+    "Esta información es educativa y no reemplaza el consejo médico profesional. Siempre consulta con un especialista.",
     pageWidth / 2,
     y,
     { align: "center" }

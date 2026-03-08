@@ -146,7 +146,7 @@ const ButtonAccount = () => {
 												clipRule="evenodd"
 											/>
 										</svg>
-										Cerrar Sesion
+										Cerrar Sesión
 									</button>
 								</div>
 							</div>

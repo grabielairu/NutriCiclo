@@ -40,10 +40,10 @@ export default function RegionSelector({ isOpen, onClose, currentRegion, onSelec
                 <div className="text-center mb-6">
                   <span className="text-4xl">{"\uD83C\uDF0E"}</span>
                   <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-dark)] mt-2">
-                    Elige tu region
+                    Elige tu región
                   </h2>
                   <p className="text-sm text-[var(--color-dark)]/50 mt-1">
-                    Recomendaremos alimentos que encuentras en tu zona
+                  Te recomendaremos alimentos accesibles a tu zona
                   </p>
                 </div>
 

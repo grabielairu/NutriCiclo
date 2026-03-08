@@ -78,7 +78,7 @@ export default function HormoneChart({ currentDay, cycleLength, periodDuration, 
       <div className="flex gap-4 mb-2 ml-1">
         <div className="flex items-center gap-1.5">
           <div className="w-3 h-[3px] rounded-full" style={{ backgroundColor: "#E07A9A" }} />
-          <span className="text-xs text-[var(--color-dark)]/60">Estrogeno</span>
+          <span className="text-xs text-[var(--color-dark)]/60">Estrógeno</span>
         </div>
         <div className="flex items-center gap-1.5">
           <div className="w-3 h-[3px] rounded-full" style={{ backgroundColor: "#D4A054" }} />
@@ -151,7 +151,7 @@ export default function HormoneChart({ currentDay, cycleLength, periodDuration, 
       </svg>
 
       <p className="text-[10px] text-[var(--color-dark)]/30 text-center mt-1">
-        Representacion educativa aproximada. Los niveles reales varian en cada persona.
+        Representación educativa aproximada. Los niveles reales varían en cada persona.
       </p>
     </div>
   );

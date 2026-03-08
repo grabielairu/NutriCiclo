@@ -21,7 +21,7 @@ export const PHASES = {
       {
         name: "Espinacas y kale",
         reason:
-          "Ricas en hierro y magnesio. Reponen el hierro perdido durante la menstruacion y relajan la musculatura uterina.",
+          "Ricas en hierro y magnesio. Reponen el hierro perdido durante la menstruación y relajan la musculatura uterina.",
       },
       {
         name: "Chocolate oscuro 70%+",
@@ -31,7 +31,7 @@ export const PHASES = {
       {
         name: "Jengibre",
         reason:
-          "Estudios clinicos muestran que reduce el dolor menstrual con eficacia similar al ibuprofeno. Modula la percepcion del dolor.",
+          "Estudios clínicos muestran que reduce el dolor menstrual con eficacia similar al ibuprofeno. Modula la percepcion del dolor.",
       },
       {
         name: "Lentejas",
@@ -41,7 +41,7 @@ export const PHASES = {
       {
         name: "Platanos",
         reason:
-          "Vitamina B6 es cofactor en la produccion de serotonina, el neurotransmisor del bienestar que baja con el estrogeno.",
+          "Vitamina B6 es cofactor en la producción de serotonina, el neurotransmisor del bienestar que baja con el estrogeno.",
       },
       {
         name: "Curcuma",
@@ -51,7 +51,7 @@ export const PHASES = {
       {
         name: "Naranjas y berries",
         reason:
-          "Vitamina C aumenta significativamente la absorcion de hierro no-hemo, critico durante el sangrado menstrual.",
+          "Vitamina C aumenta significativamente la absorción de hierro no-hemo, critico durante el sangrado menstrual.",
       },
     ],
   },
@@ -66,7 +66,7 @@ export const PHASES = {
       {
         name: "Brocoli y coliflor",
         reason:
-          "Contienen indol-3-carbinol (I3C) y DIM que apoyan al higado en metabolizar el estrogeno que va en aumento.",
+          "Contienen indol-3-carbinol (I3C) y DIM que apoyan al hígado en metabolizar el estrogeno que va en aumento.",
       },
       {
         name: "Linaza molida",
@@ -76,12 +76,12 @@ export const PHASES = {
       {
         name: "Semillas de calabaza",
         reason:
-          "Ricas en zinc, mineral critico para la sintesis de FSH y LH, apoyando el desarrollo saludable del foliculo.",
+          "Ricas en zinc, mineral critico para la síntesis de FSH y LH, apoyando el desarrollo saludable del folículo.",
       },
       {
         name: "Proteinas magras (pollo, tofu)",
         reason:
-          "El estrogeno en ascenso favorece la sintesis de proteina muscular. Aprovecha esta ventana anabolica natural.",
+          "El estrogeno en ascenso favorece la síntesis de proteina muscular. Aprovecha esta ventana anabolica natural.",
       },
       {
         name: "Quinoa y avena",
@@ -91,7 +91,7 @@ export const PHASES = {
       {
         name: "Aguacate",
         reason:
-          "Grasas monoinsaturadas esenciales para la produccion hormonal. Todas las hormonas esteroideas se construyen desde el colesterol.",
+          "Grasas monoinsaturadas esenciales para la producción hormonal. Todas las hormonas esteroideas se construyen desde el colesterol.",
       },
       {
         name: "Kimchi y yogurt",
@@ -116,17 +116,17 @@ export const PHASES = {
       {
         name: "Cruciferas (col, brocoli)",
         reason:
-          "Aun mas importantes ahora: el higado procesa el pico maximo de estrogeno. I3C y DIM facilitan la conversion segura.",
+          "Aun mas importantes ahora: el hígado procesa el pico maximo de estrogeno. I3C y DIM facilitan la conversion segura.",
       },
       {
         name: "Esparragos y espinacas",
         reason:
-          "Ricos en folato (B9), vital para la division celular y sintesis de ADN durante la liberacion del ovulo.",
+          "Ricos en folato (B9), vital para la division celular y síntesis de ADN durante la liberacion del ovulo.",
       },
       {
         name: "Huevos",
         reason:
-          "Proteina completa con colina (integridad de membranas celulares), vitamina D y B12. El colesterol apoya la produccion hormonal.",
+          "Proteina completa con colina (integridad de membranas celulares), vitamina D y B12. El colesterol apoya la producción hormonal.",
       },
       {
         name: "Vegetales coloridos",
@@ -136,7 +136,7 @@ export const PHASES = {
       {
         name: "Almendras y semillas de girasol",
         reason:
-          "Vitamina E protege la funcion ovarica. El selenio de las semillas apoya la tiroides, ligada al balance reproductivo.",
+          "Vitamina E protege la función ovarica. El selenio de las semillas apoya la tiroides, ligada al balance reproductivo.",
       },
       {
         name: "Pescado y carne magra",
@@ -146,7 +146,7 @@ export const PHASES = {
       {
         name: "Granos integrales",
         reason:
-          "Fibra que ayuda al higado a procesar el pico de estrogeno. Vitaminas B para el metabolismo energetico en su punto mas alto.",
+          "Fibra que ayuda al hígado a procesar el pico de estrogeno. Vitaminas B para el metabolismo energetico en su punto mas alto.",
       },
       {
         name: "Aguacate y aceite de oliva",
@@ -196,12 +196,12 @@ export const PHASES = {
       {
         name: "Garbanzos y lentejas",
         reason:
-          "Vitamina B6 apoya la produccion de progesterona y puede aumentar serotonina. Fibra contrarresta el estrenimiento por progesterona.",
+          "Vitamina B6 apoya la producción de progesterona y puede aumentar serotonina. Fibra contrarresta el estrenimiento por progesterona.",
       },
       {
         name: "Platanos y espinacas",
         reason:
-          "Potasio reduce retencion de agua. Magnesio y hierro preparan reservas para la menstruacion que viene.",
+          "Potasio reduce retencion de agua. Magnesio y hierro preparan reservas para la menstruación que viene.",
       },
     ],
   },
