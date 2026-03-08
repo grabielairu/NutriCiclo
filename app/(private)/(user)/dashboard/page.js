@@ -156,15 +156,15 @@ export default function Dashboard() {
             {(() => {
               const alerts = [];
               if (cycleData.periodDuration >= cycleData.cycleLength && cycleData.cycleLength > 0)
-                alerts.push("Si tu sangrado dura todo el ciclo, es importante que consultes con un profesional de salud para una evaluación.");
+                alerts.push("Si tu sangrado dura todo el ciclo, es buena idea platicarlo con tu profesional de salud para entender mejor qué pasa en tu cuerpo.");
               if (cycleData.cycleLength < 21 && cycleData.cycleLength > 0)
-                alerts.push("Un ciclo menor a 21 dias podria indicar alteraciones hormonales. Te recomendamos consultar con un profesional de salud.");
+                alerts.push("Un ciclo menor a 21 días es menos común. Vale la pena comentarlo con tu profesional de salud para conocer mejor tu cuerpo.");
               if (cycleData.cycleLength > 35)
-                alerts.push("Un ciclo mayor a 35 dias podria estar asociado a condiciones como SOP. Considera consultar con un profesional.");
+                alerts.push("Un ciclo mayor a 35 días puede tener varias causas. Es buena idea mencionarlo en tu próxima consulta para asegurarte de que todo esté bien.");
               if (cycleData.periodDuration > 7)
-                alerts.push("Un sangrado mayor a 7 dias merece atención médica para descartar posibles condiciones.");
+                alerts.push("Un sangrado de más de 7 días merece una revisión profesional para asegurarte de que todo está bien.");
               if (cycleData.periodDuration < 2 && cycleData.periodDuration > 0)
-                alerts.push("Un sangrado menor a 2 dias podria indicar cambios hormonales. Considera mencionarlo en tu proxima consulta medica.");
+                alerts.push("Un sangrado menor a 2 días es poco común. Mencionarlo en tu próxima consulta puede ayudarte a entender mejor tu ciclo.");
 
               if (alerts.length === 0) return null;
 
@@ -173,7 +173,7 @@ export default function Dashboard() {
                   <div className="flex items-start gap-3">
                     <span className="text-xl flex-shrink-0 mt-0.5">⚠️</span>
                     <div className="space-y-2">
-                      <h4 className="font-bold text-amber-900 text-sm">Consulta con un profesional</h4>
+                      <h4 className="font-bold text-amber-900 text-sm">Un recordatorio importante</h4>
                       {alerts.map((msg, i) => (
                         <p key={i} className="text-amber-800 text-sm leading-relaxed">{msg}</p>
                       ))}
@@ -247,13 +247,13 @@ export default function Dashboard() {
                     const tip = getTipForDay(phase.name, day - phase.startDay);
                     const alertsList = [];
                     if (cycleData.periodDuration >= cycleData.cycleLength && cycleData.cycleLength > 0)
-                      alertsList.push("Si tu sangrado dura todo el ciclo, consulta con un profesional.");
+                      alertsList.push("Si tu sangrado dura todo el ciclo, platicalo con tu profesional de salud.");
                     if (cycleData.cycleLength < 21 && cycleData.cycleLength > 0)
-                      alertsList.push("Un ciclo menor a 21 dias podria indicar alteraciones hormonales.");
+                      alertsList.push("Un ciclo menor a 21 días es menos común. Vale la pena comentarlo con tu profesional.");
                     if (cycleData.cycleLength > 35)
-                      alertsList.push("Un ciclo mayor a 35 dias podria estar asociado a condiciones como SOP.");
+                      alertsList.push("Un ciclo mayor a 35 días puede tener varias causas. Menciónalo en tu próxima consulta.");
                     if (cycleData.periodDuration > 7)
-                      alertsList.push("Un sangrado mayor a 7 dias merece atención médica.");
+                      alertsList.push("Un sangrado de más de 7 días merece una revisión profesional.");
 
                     generateCyclePDF({
                       name: cycleData.name,

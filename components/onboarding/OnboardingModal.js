@@ -215,9 +215,9 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                           className="rounded-xl p-4 text-center space-y-2"
                           style={{ backgroundColor: preview.phaseData.color + "20" }}
                         >
-                          <p className="text-sm text-[var(--color-dark)]/60">Hoy estas en:</p>
+                          <p className="text-sm text-[var(--color-dark)]/60">Hoy estás en:</p>
                           <p className="text-lg font-bold text-[var(--color-dark)]">
-                            {preview.phaseData.emoji} Dia {preview.day} - Fase {preview.phaseData.name}
+                            {preview.phaseData.emoji} Día {preview.day} - Fase {preview.phaseData.name}
                           </p>
                           <p className="text-sm text-[var(--color-dark)]/60">
                             Próximo periodo: {preview.nextPeriod.toLocaleDateString("es-MX", { day: "numeric", month: "long" })}
