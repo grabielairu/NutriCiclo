@@ -110,7 +110,7 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                         type="text"
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        placeholder="Ej: Maria"
+                        placeholder="Ej: Alejandra"
                         className="input input-bordered w-full bg-white"
                       />
                     </div>
@@ -142,7 +142,7 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-[var(--color-dark)] mb-1">
-                        Duracion de tu ciclo (dias)
+                        Duración de tu ciclo (días)
                       </label>
                       <input
                         type="range"
@@ -155,16 +155,16 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                       />
                       <div className="flex justify-between text-xs text-[var(--color-dark)]/50 mt-1">
                         <span>0</span>
-                        <span className="font-bold text-[var(--color-sage)] text-base">{form.cycleLength} dias</span>
+                        <span className="font-bold text-[var(--color-sage)] text-base">{form.cycleLength} días</span>
                         <span>60</span>
                       </div>
                       <p className="text-xs text-[var(--color-dark)]/40 mt-1">
-                        El promedio es 28 dias. Si no estas segura, dejalo en 28. Cada cuerpo es diferente.
+                      El promedio de una persona menstruante es de 28 días, pero puedes ajustarlos según tu caso. Recuerda que cada cuerpo es distinto.
                       </p>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-[var(--color-dark)] mb-1">
-                        Duracion de tu periodo (dias de sangrado)
+                        Duración de tu periodo (días de sangrado)
                       </label>
                       <input
                         type="range"
@@ -177,7 +177,7 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                       />
                       <div className="flex justify-between text-xs text-[var(--color-dark)]/50 mt-1">
                         <span>0</span>
-                        <span className="font-bold text-[var(--color-coral)] text-base">{form.periodDuration} dias</span>
+                        <span className="font-bold text-[var(--color-coral)] text-base">{form.periodDuration} días</span>
                         <span>30</span>
                       </div>
                     </div>
@@ -190,12 +190,12 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                     <div className="text-center">
                       <span className="text-4xl">📅</span>
                       <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-dark)] mt-2">
-                        Ultimo periodo
+                        Último periodo
                       </h2>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-[var(--color-dark)] mb-1">
-                        Fecha en que inicio tu ultimo periodo
+                        Fecha en que inició tu último periodo
                       </label>
                       <input
                         type="date"
@@ -220,7 +220,7 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                             {preview.phaseData.emoji} Dia {preview.day} - Fase {preview.phaseData.name}
                           </p>
                           <p className="text-sm text-[var(--color-dark)]/60">
-                            Proximo periodo: {preview.nextPeriod.toLocaleDateString("es-MX", { day: "numeric", month: "long" })}
+                            Próximo periodo: {preview.nextPeriod.toLocaleDateString("es-MX", { day: "numeric", month: "long" })}
                           </p>
                         </div>
                       );
@@ -235,7 +235,7 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                       onClick={handleBack}
                       className="btn btn-ghost text-[var(--color-dark)]"
                     >
-                      Atras
+                      Atrás
                     </button>
                   ) : (
                     <div />
@@ -246,7 +246,7 @@ export default function OnboardingModal({ isOpen, onComplete }) {
                     className={`btn border-none ${canAdvance() ? "btn-nature" : "text-white"}`}
                     style={canAdvance() ? {} : { backgroundColor: "#9ca3af" }}
                   >
-                    {step === STEPS ? "Ir a mi Dashboard" : "Siguiente"}
+                    {step === STEPS ? "Ir a mi Tablero" : "Siguiente"}
                   </button>
                 </div>
               </Dialog.Panel>
